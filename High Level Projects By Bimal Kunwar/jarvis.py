@@ -8,30 +8,25 @@ import os
 engine = pyttsx3.init()
 
 def speak(text):
-    """Use the text-to-speech engine to speak the text."""
     engine.say(text)
     engine.runAndWait()
 
 def open_chrome():
-    """Open Google Chrome."""
     chrome_path = 'C:/Program Files/Google/Chrome/Application/chrome.exe %s'
     webbrowser.get(chrome_path).open("chrome.com")
     speak("Opening Chrome")
 
 def open_website(url):
-    """Open a website in the default web browser."""
     webbrowser.open(url)
     speak(f"Opening sir ")
 
 def tell_time():
-    """Tell the current time."""
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     speak(f"The current time is {current_time}")
     print(f"The current time is {current_time}")
 
 def handle_command(command):
-    """Handle different commands."""
     command = command.lower()
 
     if 'hi jarvis' in command:
@@ -52,7 +47,6 @@ def handle_command(command):
         speak("Sorry, I didn't understand that command.")
 
 def listen_command():
-    """Listen for a command from the user."""
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
@@ -69,7 +63,6 @@ def listen_command():
             return None
 
 def main():
-    """Main function to run the assistant."""
     speak("Hello Bimal , I am Jarvis and I am your personal assistant. Sir give me some command")
     print("You can say 'Hi Jarvis', 'open Chrome', or 'open YouTube'.")
 
